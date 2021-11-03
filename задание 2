@@ -1,0 +1,14 @@
+library(dplyr)
+
+data = read_csv("greendb.csv")
+data = data %>% filter(adm_region == "Внуково")
+model = lm(height_m ~ adm_region, data)
+
+print(anova(model))
+# Response: height_m
+# Df Sum Sq Mean Sq F value Pr(>F)
+# adm_region 76 24880 327.37 12.116 < 2.2e-16 ***
+# Residuals 3875 104705 27.02
+
+# Signif. codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+# Зависит
